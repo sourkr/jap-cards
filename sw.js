@@ -16,7 +16,7 @@ self.addEventListener('install', ev => {
         './translate.js',
         './icon.png',
         './icon512.png',
-        'https://fonts.googleapis.com/icon?family=Material+Icons'
+        './google-fonts.woff2'
       ])
     })
   )
