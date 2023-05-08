@@ -6,7 +6,17 @@ self.addEventListener('install', ev => {
         './main.js',
         './sw.js',
         './style/style.css',
-        './style/sour.css'
+        './style/sour.css',
+        './add.html',
+        './add.js',
+        './test.html',
+        './test.js',
+        './words/hiragana.txt',
+        './words/kanji.txt',
+        './translate.js',
+        './icon.png',
+        './icon512.png',
+        'https://fonts.googleapis.com/icon?family=Material+Icons'
       ])
     })
   )
