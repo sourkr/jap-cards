@@ -14,7 +14,7 @@ self.addEventListener('install', ev => {
         './words/hiragana.txt',
         './words/kanji.txt',
         './translate.js',
-        './icon.png',
+        './icon.jpg',
         './icon512.png',
         './google-fonts.woff2'
       ])
