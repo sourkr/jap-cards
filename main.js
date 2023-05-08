@@ -1,6 +1,6 @@
 // import { proToJap, proToKanji } from './translate.js'
 
-// navigator.serviceWorker.register('sw.js')
+navigator.serviceWorker.register('sw.js')
 
 // document.getElementById("add").addEventListener('click', () => {
 //   window.location.assign('add.html')
