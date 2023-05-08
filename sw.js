@@ -1,7 +1,13 @@
 self.addEventListener('install', ev => {
   ev.waitUntil(
     caches.open('static').then(cache => {
-      return cache.addAll(['./', './main.js', './sw.js'])
+      return cache.addAll([
+        './',
+        './main.js',
+        './sw.js',
+        './style/style.css',
+        './style/sour.css'
+      ])
     })
   )
 })
