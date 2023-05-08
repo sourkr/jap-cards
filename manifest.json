@@ -3,5 +3,10 @@
   "short_name": "Learn Japanese",
   "start_url": ".",
   "background_color": "#ffffff",
-  "theme_color": "#10bb20"
+  "theme_color": "#10bb20",
+  "icons": [{
+    "src": "icon.jpg",
+    "sizes": "192x192",
+    "type": "image/jpg"
+  }]
 }
