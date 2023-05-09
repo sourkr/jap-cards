@@ -1,4 +1,4 @@
-const KEY_STATIC = 'static_1.1'
+const KEY_STATIC = 'static_1.2'
 
 self.addEventListener('install', ev => {
   ev.waitUntil(
@@ -24,7 +24,7 @@ self.addEventListener('activate', ev => {
     caches.keys().then(keys => {
       return Promise.all(
         keys
-          .filter(key => key !== KEY_STATIC)
+          .filter(key => key !== KEY_STATIC && key !== 'dynamic')
           .map(name => caches.delete(name))
       )
     })
@@ -39,7 +39,7 @@ self.addEventListener('fetch', ev => {
           cache.put(ev.request, fRes)
           return fRes
         })
-      })
+      }).catch(() => caches.match('/pages/offline.html'))
     })
   )
 })

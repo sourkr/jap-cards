@@ -91,6 +91,7 @@ button:active::before {
 
 input {
   background: var(--background);
+  color: var(--color);
 }
 
 input.valid ~ span,
