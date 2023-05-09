@@ -8,7 +8,16 @@
 </head>
 
 <body class="vert-bar center">
-  kdid
+  <h2>Oops!</h2>
+  Look like you are offline.
+  <button onclick="location.assign('/')">Go Home</button>
+  
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.querySelector(':root').style.setProperty('--background', 'black')
+      document.querySelector(':root').style.setProperty('--color', 'white')
+    }
+  </script>
 </body>
 
 </html>

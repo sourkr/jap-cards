@@ -1,5 +1,10 @@
 import { proToJap, proToKanji } from './translate.js'
 
+if (localStorage.getItem('theme') === 'dark') {
+  document.querySelector(':root').style.setProperty('--background', 'black')
+  document.querySelector(':root').style.setProperty('--color', 'white')
+}
+
 const t = 100
 
 function set(title, sub, options){

@@ -10,7 +10,7 @@ body {
   padding: 0;
   background: var(--background);
   color: var(--color);
-  transition: .5s;
+  /* transition: .5s; */
 }
 
 button {
@@ -87,6 +87,10 @@ button:active::before {
   transform: translateY(-50%);
   transition: .5s;
   color: grey;
+}
+
+input {
+  background: var(--background);
 }
 
 input.valid ~ span,

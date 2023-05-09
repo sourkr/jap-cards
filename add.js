@@ -1,5 +1,10 @@
 import { proToJap, proToKanji } from './translate.js'
 
+if (localStorage.getItem('theme') === 'dark') {
+  document.querySelector(':root').style.setProperty('--background', 'black')
+  document.querySelector(':root').style.setProperty('--color', 'white')
+}
+
 document.getElementById('btn').addEventListener('click', () => {
   const word = document.getElementById('word').value
   const meaning = document.getElementById('meaning').value
