@@ -1,4 +1,4 @@
-const KEY_STATIC = 'static_1.3'
+const KEY_STATIC = 'static_2.0'
 
 self.addEventListener('install', ev => {
   ev.waitUntil(
