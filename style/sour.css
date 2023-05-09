@@ -58,6 +58,10 @@ button:active::before {
   gap: 20px;
 }
 
+.center {
+  align-items: center;
+}
+
 .input input {
   /* width: 100%; */
   padding: 10px;
