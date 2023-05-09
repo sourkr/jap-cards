@@ -1,4 +1,4 @@
-const KEY_STATIC = 'static_1.2'
+const KEY_STATIC = 'static_1.3'
 
 self.addEventListener('install', ev => {
   ev.waitUntil(
@@ -13,7 +13,8 @@ self.addEventListener('install', ev => {
         './translate.js',
         './icon.jpg',
         './icon512.png',
-        './google-fonts.woff2'
+        './google-fonts.woff2',
+        './pages/offline.html'
       ])
     })
   )
@@ -24,7 +25,7 @@ self.addEventListener('activate', ev => {
     caches.keys().then(keys => {
       return Promise.all(
         keys
-          .filter(key => key !== KEY_STATIC && key !== 'dynamic')
+          .filter(key => (key !== KEY_STATIC))
           .map(name => caches.delete(name))
       )
     })
