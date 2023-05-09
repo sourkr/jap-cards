@@ -1,15 +1,18 @@
 import { proToJap, proToKanji } from './translate.js'
 
-navigator.serviceWorker.register('sw.js')
+if (localStorage.getItem('theme') === 'dark') {
+  document.querySelector(':root').style.setProperty('--background', 'black')
+  document.querySelector(':root').style.setProperty('--color', 'white')
+  document.querySelector(':root').style.setProperty('--nav', 'hsl(0, 0%, 10%)')
+}
 
-document.getElementById("add").addEventListener('click', () => {
-  window.location.assign('add.html')
-})
+navigator.serviceWorker.register('sw.js')
 
 const data = localStorage.getItem('jap') ? JSON.parse(localStorage.getItem('jap')) : []
 const dataEle = document.getElementById('data')
+const list = [...data].reverse()
 
-data.reverse().forEach((dat, i) => {
+list.forEach((dat, i) => {
   const container = dataEle.appendChild(document.createElement('div'))
   const kanji = container.appendChild(document.createElement('h1'))
   const hiragana = container.appendChild(document.createElement('h2'))
@@ -26,8 +29,14 @@ data.reverse().forEach((dat, i) => {
   remove.innerText = 'delete_forever'
   
   remove.onclick = () => {
-    data.splice(i, 1)
+    const index = data.indexOf(dat)
+    data.splice(index, 1)
+    
     localStorage.setItem('jap', JSON.stringify(data))
-    window.location.assign('index.html')
+    location.reload()
   }
+})
+
+document.getElementById("add").addEventListener('click', () => {
+  window.location.assign('add.html')
 })

@@ -1,10 +1,11 @@
+const KEY_STATIC = 'static_1.0'
+
 self.addEventListener('install', ev => {
   ev.waitUntil(
     caches.open('static').then(cache => {
       return cache.addAll([
         './',
         './main.js',
-        './sw.js',
         './style/style.css',
         './style/sour.css',
         './add.html',
@@ -18,6 +19,18 @@ self.addEventListener('install', ev => {
         './icon512.png',
         './google-fonts.woff2'
       ])
+    })
+  )
+})
+
+self.addEventListener('active', ev => {
+  ev.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys
+        .filter(key => key !== KEY_STATIC)
+        .map(name => caches.delete(name))
+      )
     })
   )
 })

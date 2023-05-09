@@ -57,18 +57,6 @@ div div {
   margin: 20px;
 }
 
-/* button {
-  width: calc(100% - 20px);
-  font-size: 1.2rem;
-  background: hsla(105, 86%, 46%, 1);
-  border: none;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  color: white;
-  font-weight: 700;
-} */
-
 #options {
   display: grid;
   /* width: 100%; */
@@ -86,3 +74,4 @@ div div {
   border-radius: 10px;
   box-shadow: 0 0 5px grey;
 }
+

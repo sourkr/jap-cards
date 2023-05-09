@@ -1,6 +1,16 @@
+:root {
+  --background: white;
+  --color: black;
+  --primary: hsla(129, 93%, 48%, 1);
+  --nav: hsla(0, 0%, 90%, 1);
+}
+
 body {
   margin: 0;
   padding: 0;
+  background: var(--background);
+  color: var(--color);
+  transition: .5s;
 }
 
 button {
@@ -75,8 +85,6 @@ button:active::before {
   color: grey;
 }
 
-
-
 input.valid ~ span,
 input:focus ~ span {
   background: limegreen;
@@ -113,21 +121,20 @@ h2 {
 
 nav {
   display: flex;
-  background: hsl(0 0% 90%);
+  /* background: hsl(0, 0%, 90%); */
+  background-color: var(--nav);
   height: 55px;
   align-items: center;
 }
 
 nav > span {
   flex-grow: 1;
-  color: black;
   padding-left: 10px;
   font-weight: 700;
 }
 
 nav div {
   margin-right: 10px;
-  color: black;
 }
 
 nav .material-icons {
@@ -161,4 +168,35 @@ nav .material-icons:active {
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+}
+
+.radio {
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.radio input {
+  appearance: none;
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  width: .9rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.radio input:checked {
+  background: var(--primary);
+}
+
+.radio label {
+  display: block;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.radio:has(input:checked) {
+  outline: 1px solid var(--primary);
 }
