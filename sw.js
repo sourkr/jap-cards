@@ -1,21 +1,23 @@
-const KEY_STATIC = 'static_2.0'
+const KEY_STATIC = 'static_2.7'
+
+const assets = [
+  './',
+  './main.js',
+  './style/style.css',
+  './style/sour.css',
+  './words/hiragana.txt',
+  './words/kanji.txt',
+  './translate.js',
+  './icon.jpg',
+  './icon512.png',
+  './google-fonts.woff2',
+  './pages/offline.html'
+]
 
 self.addEventListener('install', ev => {
   ev.waitUntil(
     caches.open(KEY_STATIC).then(cache => {
-      return cache.addAll([
-        './',
-        './main.js',
-        './style/style.css',
-        './style/sour.css',
-        './words/hiragana.txt',
-        './words/kanji.txt',
-        './translate.js',
-        './icon.jpg',
-        './icon512.png',
-        './google-fonts.woff2',
-        './pages/offline.html'
-      ])
+      return cache.addAll(assets)
     })
   )
 })
@@ -37,10 +39,25 @@ self.addEventListener('fetch', ev => {
     caches.match(ev.request).then(response => {
       return response || fetch(ev.request).then(fRes => {
         return caches.open('dynamic').then(cache => {
-          cache.put(ev.request, fRes)
+          cache.put(ev.request.url, fRes.clone())
+          limitCacheSize('dynamic', 5)
           return fRes
         })
-      }).catch(() => caches.match('/pages/offline.html'))
+      }).catch(err => {
+        if(ev.request.url.indexOf('.html') !== -1){
+          return caches.match('/pages/offline.html')
+        }
+      })
     })
   )
 })
+
+function limitCacheSize(name, size){
+  caches.open(name).then(cache => {
+    cache.keys().then(keys => {
+      if(keys.length > size){
+        cache.delete(keys[0]).then(() => limitCacheSize(name, size))
+      } 
+    })
+  })
+}

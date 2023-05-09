@@ -62,6 +62,10 @@ button:active::before {
   align-items: center;
 }
 
+.fixicon {
+  vertical-align: bottom;
+}
+
 .input input {
   /* width: 100%; */
   padding: 10px;
