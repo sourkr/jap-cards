@@ -6,22 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   
-  <link rel="stylesheet" href="style/style.css">
+  <!-- <link rel="stylesheet" href="style/style.css"> -->
   <link rel="stylesheet" href="style/sour.css">
 </head>
 
-<body>
-  <div id="data">
-    <h1 id="title">Word</h1>
-    <span id="sub">test</span>
-    
-    <div id="options" style="border: none; box-shadow: none;">
-      <div>a</div>
-      <div>b</div>
-      <div>c</div>
-      <div>d</div>
-    </div>
+<body class="vert-bar no-gap" style="height: calc(100vh - 80px)">
+  <div class="horz-bar no-pad center">
+    <div class="progress-bar" style="height: 20px;" id="progress"></div>
+    <span id="counter">0/20</span>  
   </div>
+  
+  <h1 id="title">Title</h1>
+  <span id="sub" class="sub"></span>
+  
+  <div id="options" style="
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 20px;
+    height: 100%;
+  ">
+    <div class="border">A</div>
+    <div class="border">B</div>
+    <div class="border">C</div>
+    <div class="border">D</div>
+  </div>
+  
+  <button id="next">Next</button>
   
   <script type="module" src="test.js"></script>
 </body>

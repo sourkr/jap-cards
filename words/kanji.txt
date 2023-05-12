@@ -1,12 +1,11 @@
+sei 生
+
 sushi 寿司
 mizu 水
-ocha お茶
-gohan ご飯
+cha 茶
+han 飯
 
-sensei 先生
+sen 先
 isha 医者
 hito 人
-kakushi 学者
-
-deduzoyoshiku 出津ぞ芳区
-bengoshi 弁護士
+gaku 学生

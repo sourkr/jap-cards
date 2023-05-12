@@ -2,116 +2,125 @@ import { proToJap, proToKanji } from './translate.js'
 
 if (localStorage.getItem('theme') === 'dark') {
   document.querySelector(':root').style.setProperty('--background', 'black')
+  document.querySelector(':root').style.setProperty('--background-faint', 'hsl(0, 0%, 10%)')
   document.querySelector(':root').style.setProperty('--color', 'white')
 }
 
 const t = 100
+let correct = 0
 
-function set(title, sub, options){
-  return new Promise((resolve, reject) => {
-    document.getElementById('title').innerText = title
-    document.getElementById('sub').innerText = sub
+if (new URLSearchParams(location.search).get('type') === 'hiragana') {
+  const list = [
+    { kana: 'あ', alphabate: 'a' },
+    { kana: 'い', alphabate: 'i' },
+    { kana: 'う', alphabate: 'u' },
+    { kana: 'え', alphabate: 'e' },
+    { kana: 'お', alphabate: 'o' }
+  ]
+  
+  setProgress(0, 10)
+  for(let i = 0; i < 10; i++){
+    const answer = arrayRandom(list)
+    const { options, index } = createOptions(answer, list)
     
-    document.getElementById('options')
-      .querySelectorAll('div')
-      .forEach((ele, i) => {
-        ele.innerText = options[i]
-        
-        ele.addEventListener('click', () => {
-          resolve({ele, i})
-        })
-      })
+    updateCard(answer.kana, '', options.map(element => element.alphabate), index)
+    await wait()
+    setProgress(i+1, 10)
+  }
+  
+  if(correct >= 8) localStorage.setItem('hiragana-lesson', parseInt(localStorage.getItem('hiragana-lesson')) + 1)
+  document.write(`score: ${correct}/10, press back`)
+} else {
+  const data = localStorage.getItem('jap') ? JSON.parse(localStorage.getItem('jap')) : []
+  if(data.length < 4) document.write('You need to add at least 4 cards to take test.')
+  
+  for (let i = 0; i < 5; i++) {
+    const answer = arrayRandom(data)
+    const { options, index } = createOptions(answer, data)
+    updateCard(proToJap(answer.word), answer.word, options.map(element => element.meaning), index)
+    await wait()
+    setProgress(i+1, 20)
+  }
+  
+  for (let i = 0; i < 5; i++) {
+    const answer = arrayRandom(data)
+    const { options, index } = createOptions(answer, data)
+    updateCard(proToJap(proToKanji(answer.word)), answer.word, options.map(element => element.meaning), index)
+    await wait()
+    setProgress(i+6, 20)
+  }
+  
+  for (let i = 0; i < 5; i++) {
+    const answer = arrayRandom(data)
+    const { options, index } = createOptions(answer, data)
+    updateCard(proToJap(answer.word), '', options.map(element => element.meaning), index)
+    await wait()
+    setProgress(i+11, 20)
+  }
+  
+  for (let i = 0; i < 5; i++) {
+    const answer = arrayRandom(data)
+    const { options, index } = createOptions(answer, data)
+    updateCard(proToJap(proToKanji(answer.word)), '', options.map(element => element.meaning), index)
+    await wait()
+    setProgress(i+16, 20)
+  }
+  
+  document.write(`score: ${correct}/20 press back`)
+}
+
+function arrayRandom(array){
+  return array[Math.round(Math.random() * (array.length-1))]
+}
+
+function createOptions(answer, array){
+  const index = Math.round(Math.random() * 3)
+  const list = array.filter(element => element !== answer)
+  const options = []
+  
+  options[index] = answer
+  for(let i = 0; i < 4; i++){
+    if(i !== index){
+      options[i] = arrayRandom(list.filter(element => options.indexOf(element) === -1))
+    }
+  }
+  
+  return { options, index }
+}
+
+function updateCard(title, subtitle, options, answer) {
+  document.getElementById('title').innerText = title
+  document.getElementById('sub').innerText = subtitle
+  
+  document.getElementById('options').addEventListener('click', (ev) => {
+    const list = new Array(...document.querySelectorAll('#options div'))
+    
+    if (list.indexOf(ev.target) === answer) {
+      ev.target.style.background = 'green'
+      correct++
+    } else {
+      ev.target.style.background = 'red'
+      list[answer].style.background = 'green'
+    }
+  }, {once: true})
+  
+  document.getElementById('options')
+    .querySelectorAll('div')
+    .forEach((ele, i, arr) => {
+      ele.innerText = options[i]
+      ele.style.background = 'transparent'
+    })
+}
+
+function wait() {
+  return new Promise((resolve, _reject) => {
+    document.getElementById('next').addEventListener('click', () => {
+      resolve()
+    }, { once: true })
   })
 }
 
-const data = localStorage.getItem('jap') ? JSON.parse(localStorage.getItem('jap')) : []
-
-for(let i = 0; i < 5; i++){
-  const data = random()
-  const index = Math.round(Math.random() * 3)
-  const options = []
-  
-  for(let j = 0; j < 4; j++){
-    if(j === index) options.push(data.meaning)
-    else options.push(random(options, data.meaning).meaning)
-  }
-  
-  const out = await set(proToJap(data.word), data.word, options)
-  if(out.i === index) out.ele.style.background = 'green'
-  else out.ele.style.background = 'red'
-  await sleep(t)
-  out.ele.style.background = 'transparent'
-}
-
-for (let i = 0; i < 5; i++) {
-  const data = random()
-  const index = Math.round(Math.random() * 3)
-  const options = []
-
-  for (let j = 0; j < 4; j++) {
-    if (j === index) options.push(data.meaning)
-    else options.push(random(options, data.meaning).meaning)
-  }
-
-  const out = await set(proToJap(proToKanji(data.word)), data.word, options)
-  if (out.i === index) out.ele.style.background = 'green'
-  else out.ele.style.background = 'red'
-  await sleep(t)
-  out.ele.style.background = 'transparent'
-}
-
-for (let i = 0; i < 5; i++) {
-  const data = random()
-  const index = Math.round(Math.random() * 3)
-  const options = []
-
-  for (let j = 0; j < 4; j++) {
-    if (j === index) options.push(data.meaning)
-    else options.push(random(options, data.meaning).meaning)
-  }
-
-  const out = await set(proToJap(data.word), '', options)
-  if (out.i === index) out.ele.style.background = 'green'
-  else out.ele.style.background = 'red'
-  await sleep(500)
-  out.ele.style.background = 'transparent'
-}
-
-for (let i = 0; i < 5; i++) {
-  const data = random()
-  const index = Math.round(Math.random() * 3)
-  const options = []
-
-  for (let j = 0; j < 4; j++) {
-    if (j === index) options.push(data.meaning)
-    else options.push(random(options, data.meaning).meaning)
-  }
-
-  const out = await set(proToJap(proToKanji(data.word)), '', options)
-  if (out.i === index) out.ele.style.background = 'green'
-  else out.ele.style.background = 'red'
-  await sleep(500)
-  out.ele.style.background = 'transparent'
-}
-
-document.write(`press back`)
-
-function random(a, b){
-  let c = 0
-  while(true){
-    if(c >= 10) return {}
-    
-    const dat = data[Math.round(Math.random() * (data.length - 1))]
-    // console.log(a, dat.meaning);;\
-    if((a && (a.indexOf(dat.meaning) !== -1)) || b === dat.meaning) {
-      c++
-      continue
-    }else return dat
-  }
-}
-
-function sleep(time){
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, time)
-  })
+function setProgress(done, total){
+  document.getElementById('progress').style.setProperty('--progress', ((done/total) * 100) + '%')
+  document.getElementById('counter').innerText = `${done}/${total}`
 }

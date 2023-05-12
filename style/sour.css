@@ -1,5 +1,6 @@
 :root {
   --background: white;
+  --background-faint: hsl(0, 0%, 90%);
   --color: black;
   --primary: hsla(129, 93%, 48%, 1);
   --nav: hsla(0, 0%, 90%, 1);
@@ -10,7 +11,7 @@ body {
   padding: 0;
   background: var(--background);
   color: var(--color);
-  /* transition: .5s; */
+  font-family: system-ui;
 }
 
 button {
@@ -55,7 +56,21 @@ button:active::before {
   display: flex;
   padding: 10px;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+}
+
+.horz-bar {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+}
+
+.no-gap {
+  gap: 0;
+}
+
+.no-pad {
+  padding: 0;
 }
 
 .center {
@@ -212,4 +227,39 @@ nav .material-icons:active {
 
 .radio:has(input:checked) {
   outline: 1px solid var(--primary);
+}
+
+.sub {
+  color: grey;
+}
+
+.fill {
+  flex-grow: 1;
+}
+
+.border {
+  border: 1.5px solid var(--primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 2rem;
+  border-radius: 10px;
+  position: relative;
+  background: var(--background-faint);
+  overflow: hidden;
+  --progress: 0;
+}
+
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  width: var(--progress);
+  height: 100%;
+  background: var(--primary);
+  transition: width .5s;
 }

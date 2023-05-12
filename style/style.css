@@ -60,7 +60,7 @@ div div {
 #options {
   display: grid;
   /* width: 100%; */
-  height: 70vh;
+  height: 60vh;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   grid-gap: 50px;

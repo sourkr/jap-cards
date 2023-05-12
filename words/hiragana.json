@@ -1,0 +1,15 @@
+[
+  [
+    { "kana": "a", "details": "a in c<u>a</u>rd" },
+    { "kana": "i", "details": "i in <u>i</u>mage" },
+    { "kana": "u", "details": "u in s<u>u</u>m" },
+    { "kana": "e", "details": "a in <u>a</u>pple" },
+    { "kana": "o", "details": "o in <u>o</u>range" }
+  ],[
+    { "kana": "ka", "details": "ca in <u>ca</u>r" },
+    { "kana": "ki", "details": "ki in <u>ki</u>wi" },
+    { "kana": "ku", "details": "coo in <u>coo</u>l" },
+    { "kana": "ke", "details": "ca in <u>ca</u>mera" },
+    { "kana": "ko", "details": "co in <u>co</u>re" }
+  ]
+]

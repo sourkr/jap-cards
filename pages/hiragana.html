@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../style/sour.css">
+  
+  <script>
+    if(localStorage.getItem('theme') === 'dark'){
+      document.querySelector(':root').style.setProperty('--background', 'black')
+      document.querySelector(':root').style.setProperty('--color', 'white')
+    }
+  </script>
+</head>
+
+<body style="padding: 10px;">
+  <div class="card center" id="card"></div>
+  
+  <div class="vert-bar" style="position: absolute; bottom: 0;width: calc(100% - 20px);">
+    <button id="next">Next</button>
+  </div>
+  
+  <script src="hiragana.js" type="module"></script>
+</body>
+
+</html>

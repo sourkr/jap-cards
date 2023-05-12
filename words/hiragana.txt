@@ -9,6 +9,10 @@ n ん
 ka か
 ki き
 ko こ
+ke け
+ku く
+
+sa さ
 
 se せ
 su す
@@ -18,9 +22,7 @@ go ご
 ha は
 hi ひ
 to と
-ku く
 ya や
-sa さ
 ni に
 de で
 du づ
