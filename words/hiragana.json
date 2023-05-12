@@ -11,5 +11,11 @@
     { "kana": "ku", "details": "coo in <u>coo</u>l" },
     { "kana": "ke", "details": "ca in <u>ca</u>mera" },
     { "kana": "ko", "details": "co in <u>co</u>re" }
+  ], [
+    { "kana": "sa", "details": "sa in <u>sa</u>lsa" },
+    { "kana": "shi", "details": "shee in <u>shee</u>p" },
+    { "kana": "su", "details": "s in <u>s</u>wing" },
+    { "kana": "se", "details": "se in <u>se</u>ll" },
+    { "kana": "so", "details": "so in <u>so</u>da" }
   ]
 ]
