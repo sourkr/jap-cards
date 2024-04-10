@@ -1,4 +1,6 @@
-const hiragana = await (await fetch('./words/hiragana.txt')
+const url = new URL(window.location.href)
+
+const hiragana = await (await fetch(new URL('words/hiragana.txt', url))
   .then(response => response.text()))
   .split(/\n+/) ///  error
   .reverse()
@@ -7,7 +9,7 @@ const hiragana = await (await fetch('./words/hiragana.txt')
     return {eng, jap}
   })
   
-const kanji = await (await fetch('./words/kanji.txt')
+const kanji = await (await fetch(new URL('./words/kanji.txt', url))
   .then(response => response.text()))
   .split(/\n+/) ///  error
   .reverse()
