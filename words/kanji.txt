@@ -9,3 +9,5 @@ sen 先
 isha 医者
 hito 人
 gaku 学生
+
+ichi 一
