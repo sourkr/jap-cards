@@ -1,4 +1,4 @@
-const url = new URL(window.location.href)
+const url = new URL('https://sourkr.github.io/jap-cards/index.html')
 
 const hiragana = await (await fetch(new URL('words/hiragana.txt', url))
   .then(response => response.text()))

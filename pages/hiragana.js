@@ -1,7 +1,8 @@
 import { proToJap } from '../translate.js'
 
 const lesson = parseInt(localStorage.getItem('hiragana-lesson') || '0')
-const data = await fetch('/words/hiragana.json').then(response => response.json())
+const url = new URL("../words/hiragana.json", window.location.href)
+const data = await fetch(url).then(response => response.json())
 
 for(let element of data[lesson]){
   const kana = proToJap(element.kana)
