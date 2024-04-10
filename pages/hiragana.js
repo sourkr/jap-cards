@@ -1,4 +1,4 @@
-import { proToJap } from '/translate.js'
+import { proToJap } from '../translate.js'
 
 const lesson = parseInt(localStorage.getItem('hiragana-lesson') || '0')
 const data = await fetch('/words/hiragana.json').then(response => response.json())
