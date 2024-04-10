@@ -11,3 +11,5 @@ hito 人
 gaku 学生
 
 ichi 一
+ni 二
+san 三
