@@ -38,5 +38,5 @@ list.forEach((dat, i) => {
 })
 
 document.getElementById("add").addEventListener('click', () => {
-  window.location.assign('../add.html')
+  window.location.assign('add.html')
 })
