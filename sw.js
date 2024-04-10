@@ -2,7 +2,7 @@ const KEY_STATIC = 'static_2.8'
 
 const assets = [
   './',
-  './main.js',
+  './home/main.js',
   './style/style.css',
   './style/sour.css',
   './words/hiragana.txt',
