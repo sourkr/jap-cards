@@ -1,4 +1,4 @@
-import { proToJap, proToKanji } from './translate.js'
+import { proToJap, proToKanji } from '../translate.js'
 
 if (localStorage.getItem('theme') === 'dark') {
   document.querySelector(':root').style.setProperty('--background', 'black')
@@ -6,7 +6,7 @@ if (localStorage.getItem('theme') === 'dark') {
   document.querySelector(':root').style.setProperty('--nav', 'hsl(0, 0%, 10%)')
 }
 
-navigator.serviceWorker.register('sw.js')
+navigator.serviceWorker.register('../sw.js')
 
 const data = localStorage.getItem('jap') ? JSON.parse(localStorage.getItem('jap')) : []
 const dataEle = document.getElementById('data')
@@ -38,5 +38,5 @@ list.forEach((dat, i) => {
 })
 
 document.getElementById("add").addEventListener('click', () => {
-  window.location.assign('add.html')
+  window.location.assign('../add.html')
 })
