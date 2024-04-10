@@ -1,5 +1,4 @@
-const hiragana = (await fetch('./words/hiragana.txt')
-  .catch(document.write)
+const hiragana = await (await fetch('./words/hiragana.txt')
   .then(response => response.text()))
   .split(/\n+/) ///  error
   .reverse()
@@ -8,7 +7,7 @@ const hiragana = (await fetch('./words/hiragana.txt')
     return {eng, jap}
   })
   
-const kanji = (await fetch('./words/kanji.txt')
+const kanji = await (await fetch('./words/kanji.txt')
   .then(response => response.text()))
   .split(/\n+/) ///  error
   .reverse()
