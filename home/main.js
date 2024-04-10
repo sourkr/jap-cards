@@ -6,7 +6,7 @@ if (localStorage.getItem('theme') === 'dark') {
   document.querySelector(':root').style.setProperty('--nav', 'hsl(0, 0%, 10%)')
 }
 
-navigator.serviceWorker.register('../sw.js')
+navigator.serviceWorker.register('sw.js')
 
 const data = localStorage.getItem('jap') ? JSON.parse(localStorage.getItem('jap')) : []
 const dataEle = document.getElementById('data')
