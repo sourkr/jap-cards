@@ -1,22 +1,23 @@
 a あ
 i い
-o お
-e え
 u う
+e え
+o お
 
 n ん
 
 ka か
 ki き
-ko こ
-ke け
 ku く
+ke け
+ko こ
 
 sa さ
 su す
 se せ
 so そ
 
+ma ま
 mi み
 zu ず
 go ご
@@ -31,7 +32,6 @@ zo ぞ
 yo よ
 ba ば
 ne ね
-ma ま
 ta た
 be べ
 
