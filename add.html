@@ -2,37 +2,33 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Add New Card</title>
-  
-  <link rel="stylesheet" href="style/sour.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add New Card</title>
+
+    <link rel="stylesheet" href="style/sour.css">
+    <link rel="stylesheet" href="style/theme.css">
 </head>
 
 <body>
-  <!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script> -->
-  <!-- <script>eruda.init();</script> -->
-  
-  <div class="card">
-    <h1></h1>
-    <h2></h2>
-    
-    <div class="input">
-      <input id="word" type="text">
-      <span>Word</span>
+    <!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script> -->
+    <!-- <script>eruda.init();</script> -->
+
+    <div class="card-edit">
+        <div class="input">
+            <input id="word" type="text">
+            <span>Word</span>
+        </div>
+
+        <div class="input">
+            <input id="meaning" type="text">
+            <span>Meaning</span>
+        </div>
+        
+        <button id="btn">Add New</button>
     </div>
-    
-    <div class="input">
-      <input id="meaning" type="text" />
-      <span>Meaning</span>
-    </div>
-    
-    <div id="kanji"></div>
-    
-    <button id="btn">Add New</button>
-  </div>
-  
-  <script type="module" src="add.js"></script>
+
+    <script type="module" src="./add.js"></script>
 </body>
 
 </html>

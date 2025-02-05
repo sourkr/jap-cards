@@ -1,0 +1,67 @@
+:root {
+    --hue: 200deg;
+    
+    --background: hsl(var(--hue), 50%, 99%);
+    --background-2: hsl(var(--hue), 50%, 95%);
+    --background-3: hsl(var(--hue), 50%, 90%);
+    
+    --color: hsl(var(--hue), 50%, 1%);
+    --color-2: hsl(var(--hue), 50%, 5%);
+    --color-3: hsl(var(--hue), 50%, 10%);
+    
+    --slate-3: hsl(var(--hue), 20%, 50%);
+    
+    --primary: hsl(var(--hue), 75%, 50%);
+    --on-primary: hsl(var(--hue), 50%, 95%);
+}
+
+body {
+    background: var(--background);
+    color: var(--color);
+}
+
+nav {
+    background: transparent;
+}
+
+#add {
+    background: var(--primary);
+}
+
+#data > div {
+    background: var(--background-2);
+    color: var(--color-2);
+}
+
+.card-edit {
+    background: var(--background-2);
+    color: var(--color-2);
+}
+
+.input {
+    & input {
+        background: var(--background-3);
+        color: var(--color-3);
+        border-color: transparent;
+    }
+    
+    & span {
+        color: var(--slate-3);
+    }
+}
+
+input.valid~span,
+input:focus~span {
+    background: var(--primary);
+    color: var(--on-primary);
+}
+
+input.valid,
+input:focus {
+    border-color: var(--primary);
+}
+
+button {
+    background: var(--primary);
+    color: var(--on-primary);
+}

@@ -1,25 +1,15 @@
-:root {
-  --background: white;
-  --background-faint: hsl(0, 0%, 90%);
-  --color: black;
-  --primary: hsla(129, 93%, 48%, 1);
-  --nav: hsla(0, 0%, 90%, 1);
-}
-
 body {
   margin: 0;
   padding: 0;
-  background: var(--background);
-  color: var(--color);
   font-family: system-ui;
 }
 
 button {
-  background: limegreen;
-  padding: 10px;
+  /* background: limegreen; */
+  padding: 10px 20px;
   border: none;
-  border-radius: 10px;
-  color: white;
+  border-radius: 25px;
+  /* color: white; */
   font-weight: 700;
   font-size: 1.2rem;
   position: relative;
@@ -49,7 +39,6 @@ button:active::before {
 
 .vert-bar button.long {
   flex-grow: 1;
-  /* background: red; */
 }
 
 .vert-bar {
@@ -82,11 +71,8 @@ button:active::before {
 }
 
 .input input {
-  /* width: 100%; */
   padding: 10px;
-  border: 1px solid grey;
   border-radius: 10px;
-  border-color: grey;
   outline: none;
 }
 
@@ -108,34 +94,43 @@ button:active::before {
   color: grey;
 }
 
-input {
-  background: var(--background);
-  color: var(--color);
-}
-
 input.valid ~ span,
 input:focus ~ span {
-  background: limegreen;
-  color: white;
   border-radius: 5px;
-  padding: 2px;
+  padding: 2px 6px;
   transform: translate(2px, -150%);
   font-size: 0.8rem;
 }
 
-input:focus,
-input.valid {
-  border-color: limegreen;
+input {
+    border: 2px solid transparent;
+    transition: .5s border-color;
 }
 
-.card {
+.card-edit {
   margin: 10px;
   padding: 10px;
-  box-shadow: 0 0 10px grey;
   display: flex;
   flex-direction: column;
   gap: 20px;
   border-radius: 10px;
+}
+
+.card {
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    
+    .options {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 10px;
+        color: hsl(200, 10%, 50%);
+        
+        /* & :nth-child(1) {
+            color: hsl(0, 80%, 50%);
+        } */
+    }
 }
 
 h1 {
@@ -149,7 +144,6 @@ h2 {
 
 nav {
   display: flex;
-  /* background: hsl(0, 0%, 90%); */
   background-color: var(--nav);
   height: 55px;
   align-items: center;
@@ -158,7 +152,7 @@ nav {
 nav > span {
   flex-grow: 1;
   padding-left: 10px;
-  font-weight: 700;
+  font-size: 1.rem;
 }
 
 nav div {

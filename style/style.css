@@ -8,15 +8,6 @@ body {
   margin: 10px;
 }
 
-#data > div {
-  border: 1px solid red;
-  border-color: hsl(105, 86%, 46%);
-  border-radius: 10px;
-  box-shadow: 0 0 5px grey;
-  padding: 10px;
-  position: relative;
-}
-
 h1 {
   margin: 0;
   border-bottom: 1px solid gray;
@@ -26,25 +17,14 @@ h2 {
   margin: 15px 0 0 0;
 }
 
-#data span {
-  color: gray;
-}
-
 div div {
   margin-top: 10px;
-}
-
-#data .material-icons {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  margin: 10px;
 }
 
 #add {
   position: fixed;
   display: flex;
-  background: hsla(105, 86%, 46%, 0.6);
+  /* background: hsla(105, 86%, 46%, 0.6); */
   width: 60px;
   aspect-ratio: 1;
   align-items: center;
@@ -55,6 +35,7 @@ div div {
   bottom: 0;
   right: 0;
   margin: 20px;
+  box-shadow: 0 0 5px 0 #C2C2C2;
 }
 
 #options {
