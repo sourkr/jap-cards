@@ -1,6 +1,3 @@
-// import "https://code.jquery.com/jquery-3.7.1.slim.min.js"
-// import { proToJap, proToKanji } from '../translate.js'
-
 navigator.serviceWorker.register('sw.js')
 
 /**
@@ -23,7 +20,7 @@ function updateCardList() {
         cardEle.querySelector('.meaning').innerText = cardData.meaning
 
         cardEle.querySelector('.edit').onclick = () => {
-
+            location.assign(`./pages/add/?card=${i}`)
         }
 
         cardEle.querySelector('.delete').onclick = () => {

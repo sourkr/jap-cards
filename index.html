@@ -32,6 +32,14 @@
 
         document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
     </script>
+    
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100svh;
+        }
+    </style>
 </head>
 
 <body>
@@ -53,7 +61,7 @@
         </span>
     </nav>
 
-    <div id="cards"></div>
+    <div id="cards" class="sv"></div>
 
     <md-fab variant="primary" onclick="location.assign('./pages/add')">
         <md-icon slot="icon">add</md-icon>

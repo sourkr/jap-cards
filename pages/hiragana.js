@@ -12,7 +12,7 @@ for(let element of data[lesson]){
 }
 
 localStorage.setItem('hiragana-lesson', lesson)
-location.assign('../test.html?type=hiragana')
+location.assign('./test/?type=hiragana')
 
 function updateCard(title, subtitle, details) {
   document.getElementById('card').innerHTML = `

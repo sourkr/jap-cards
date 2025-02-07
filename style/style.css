@@ -75,3 +75,7 @@ md-fab {
     right: 20px;
     bottom: 20px;
 }
+
+.sv {
+    overflow-y: scroll;
+}
