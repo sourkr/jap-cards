@@ -14,7 +14,7 @@ $('#btn').on('click', () => {
     const data = localStorage.getItem('jap') ? JSON.parse(localStorage.getItem('jap')) : []
     data.push({ word, meaning })
     
-    console.log(data)
+    // console.log(data)
     localStorage.setItem('jap', JSON.stringify(data))
     location.reload()
 })
