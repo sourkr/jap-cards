@@ -2,8 +2,8 @@
   "name": "Japanese Flash Card",
   "short_name": "Japanese Flash Card",
   "start_url": ".",
-  "background_color": "#fbfdfe",
-  "theme_color": "#fbfdfe",
+  "background_color": "#fafaee",
+  "theme_color": "#fafaee",
   "display": "standalone",
   "icons": [
     {
