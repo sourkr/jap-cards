@@ -97,6 +97,6 @@ function wait() {
 }
 
 function setProgress(done, total) {
-    document.getElementById('progress').style.setProperty('--progress', ((done / total) * 100) + '%')
-    document.getElementById('counter').innerText = `${done}/${total}`
+    document.getElementById('progress-bar').style.setProperty('--progress', ((done / total) * 100) + '%')
+    document.getElementById('counter').innerText = `${done} / ${total}`
 }
