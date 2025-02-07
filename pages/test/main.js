@@ -33,7 +33,7 @@ if (new URLSearchParams(location.search).get('type') === 'hiragana') {
         const { options, index } = createOptions(answer, data)
         updateCard(answer.word, options.map(element => element.meaning), index)
         await wait()
-        setProgress(i + 1, 20)
+        setProgress(i + 1, 5)
     }
 
     document.write(`score: ${correct}/5 press back`)
@@ -97,6 +97,6 @@ function wait() {
 }
 
 function setProgress(done, total) {
-    document.getElementById('progress-bar').style.setProperty('--progress', ((done / total) * 100) + '%')
+    document.getElementById('progress-bar').value = done / total
     document.getElementById('counter').innerText = `${done} / ${total}`
 }
