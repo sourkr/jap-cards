@@ -11,9 +11,9 @@ const cards = localStorage.getItem('jap') ? JSON.parse(localStorage.getItem('jap
 updateCardList()
 
 function updateCardList() {
-    const dataEle = document.getElementById('data')
+    const cardsEle = document.getElementById('cards')
     
-    dataEle.innerHTML = ''
+    cardsEle.innerHTML = ''
     
     for (let i = cards.length - 1; i >= 0; i--) {
         const cardData = cards[i]
@@ -32,10 +32,6 @@ function updateCardList() {
             localStorage.setItem('jap', JSON.stringify(cards))
         }
 
-        document.getElementById('data').appendChild(cardEle)
+        cardsEle.appendChild(cardEle)
     }
 }
-
-document.getElementById("add").addEventListener('click', () => {
-    window.location.assign('add.html')
-})

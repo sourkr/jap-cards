@@ -1,9 +1,9 @@
 {
-  "name": "Learn Japanese",
-  "short_name": "Learn Japanese",
+  "name": "Japanese Flash Card",
+  "short_name": "Japanese Flash Card",
   "start_url": ".",
-  "background_color": "#ffffff",
-  "theme_color": "#10bb20",
+  "background_color": "#fbfdfe",
+  "theme_color": "#fbfdfe",
   "display": "standalone",
   "icons": [
     {

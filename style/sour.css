@@ -231,8 +231,8 @@ nav .material-icons:active {
   flex-grow: 1;
 }
 
-.border {
-  border: 1.5px solid var(--primary);
+.ans {
+  /* border: 1.5px solid var(--primary); */
   border-radius: 10px;
   display: flex;
   align-items: center;

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fbfdfe" />
+
+    <title>Add New Card</title>
+
+    <link rel="stylesheet" href="/style/theme/light.css">
+    <link rel="stylesheet" href="/style/style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "@material/web/": "https://esm.run/@material/web/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import '@material/web/all.js';
+        import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+
+        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            padding-block: 20px;
+            height: 100svh;
+            box-sizing: border-box;
+        }
+
+        .card-edit {
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-edit">
+        <md-outlined-text-field id="word" label="Word"></md-outlined-text-field>
+        <md-outlined-text-field id="meaning" label="Meaning"></md-outlined-text-field>
+    </div>
+
+    <md-filled-button>Add New</md-filled-button>
+
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

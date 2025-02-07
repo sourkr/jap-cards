@@ -1,16 +1,16 @@
-const KEY_STATIC = 'static_4.1'
+const KEY_STATIC = 'static_4.2'
 
 const assets = [
   './',
-  './home/main.js',
+  './pages/home/main.js',
   './style/style.css',
-  './style/sour.css',
-  './words/hiragana.txt',
-  './words/kanji.txt',
-  './translate.js',
+  './style/theme/light.css',
+//   './words/hiragana.t/xt',
+//   './words/kanji.txt',
+//   './translate.js',
   './icon.jpg',
   './icon512.png',
-  './google-fonts.woff2',
+//   './google-fonts.woff2',
   './pages/offline.html'
 ]
 

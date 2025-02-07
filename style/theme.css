@@ -13,6 +13,9 @@
     
     --primary: hsl(var(--hue), 75%, 50%);
     --on-primary: hsl(var(--hue), 50%, 95%);
+    
+    --error: hsl(0, 90%, 40%);
+    --on-error: hsl(0, 90%, 90%);
 }
 
 body {
@@ -64,4 +67,9 @@ input:focus {
 button {
     background: var(--primary);
     color: var(--on-primary);
+}
+
+.ans {
+    background: var(--background-2);
+    color: var(--color-2);
 }
