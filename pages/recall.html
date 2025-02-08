@@ -188,7 +188,7 @@
                     $($('#grid span')[selected]).addClass('wrong')
                     $($('#grid span')[options.indexOf(card.meaning)]).addClass('correct')
                     
-                    const dayCount = rate[card.dayCount || 0] || rate.at(-1)
+                    const dayCount = rate[card.dayCount = 1]
                     card.nextRecallDate = nextNDays(dayCount)
                 }
                 
