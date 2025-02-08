@@ -1,3 +1,5 @@
+import "https://code.jquery.com/jquery-3.7.1.slim.min.js"
+
 navigator.serviceWorker.register('sw.js')
 
 /**
@@ -24,9 +26,17 @@ function updateCardList() {
         }
 
         cardEle.querySelector('.delete').onclick = () => {
-            cards.splice(i, 1)
-            updateCardList()
-            localStorage.setItem('jap', JSON.stringify(cards))
+            $('#dialog-delete').prop('returnValue', '')
+            
+            $('#dialog-delete')[0].show()
+            
+            $('#dialog-delete')[0].addEventListener('close', () => {
+                if($('#dialog-delete').prop('returnValue') != 'delete') return
+                
+                cards.splice(i, 1)
+                updateCardList()
+                localStorage.setItem('jap', JSON.stringify(cards))
+            }, { once: true })
         }
 
         cardsEle.appendChild(cardEle)

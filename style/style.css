@@ -79,3 +79,7 @@ md-fab {
 .sv {
     overflow-y: scroll;
 }
+
+.err {
+    --md-text-button-label-text-color: var(--md-sys-color-error);
+}

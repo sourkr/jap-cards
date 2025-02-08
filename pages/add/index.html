@@ -30,7 +30,7 @@
     </script>
 
     <style>
-        body {
+        form {
             display: flex;
             flex-direction: column;
             padding: 10px;
@@ -49,16 +49,18 @@
 </head>
 
 <body>
-    <div class="card-edit">
-        <md-outlined-text-field id="word" label="Word"></md-outlined-text-field>
-        <md-outlined-text-field id="meaning" label="Meaning"></md-outlined-text-field>
-    </div>
+    <form>
+        <div class="card-edit">
+            <md-outlined-text-field id="word" label="Word" required no-asterisk></md-outlined-text-field>
+            <md-outlined-text-field id="meaning" label="Meaning" required no-asterisk></md-outlined-text-field>
+        </div>
 
-    <md-filled-button>Save</md-filled-button>
+        <md-filled-button>Save</md-filled-button>
+    </form>
 
-    <!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script> -->
-    <!-- <script>eruda.init();</script> -->
-    
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+
     <script type="module" src="./main.js"></script>
 </body>
 

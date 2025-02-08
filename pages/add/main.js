@@ -10,10 +10,19 @@ if(params.has('card')) {
     const card = cards[index]
     
     $('#word').val(card.word)
+    // $('#word').attr('disabled', 'disabled')
+    
     $('#meaning').val(card.meaning)
 }
 
-$('md-filled-button').on('click', () => {
+
+$('md-filled-button').on('click', ev => {
+    ev.preventDefault()
+    
+    if(!checkWordField()) return
+    
+    if(!$('form')[0].checkValidity()) return
+    
     const word = $('#word').val().trim()
     const meaning = $('#meaning').val().trim()
 
@@ -28,3 +37,18 @@ $('md-filled-button').on('click', () => {
     localStorage.setItem('jap', JSON.stringify(data))
     location.reload()
 })
+
+function checkWordField() {
+    if (params.has('card')) return true
+    
+    const word = $("#word").val().trim()
+    
+    if (cards.find(card => card.word == word)) {
+        $("#word").prop('error', true)
+        $('#word').attr('error-text', `'${word}' is already in use`)
+        return false
+    } else {
+        $("#word").prop('error', false)
+        return true
+    }
+}
