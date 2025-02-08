@@ -3,14 +3,14 @@ import "https://code.jquery.com/jquery-3.7.1.slim.min.js"
 const cards = localStorage.getItem('jap') ? JSON.parse(localStorage.getItem('jap')) : []
 const params = new URLSearchParams(location.search)
 
-console.log(location)
+// console.log(location)
 
 if(params.has('card')) {
     const index = parseInt(params.get('card'))
     const card = cards[index]
     
     $('#word').val(card.word)
-    // $('#word').attr('disabled', 'disabled')
+    $('#word').attr('disabled', 'disabled')
     
     $('#meaning').val(card.meaning)
 }

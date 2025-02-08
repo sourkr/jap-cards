@@ -42,3 +42,8 @@ function updateCardList() {
         cardsEle.appendChild(cardEle)
     }
 }
+
+$('#option-more').on('click', () => {
+    // alert(!$('#menu-more').prop('open'))
+    $('#menu-more').prop('open', !$('#menu-more').prop('open'))
+})

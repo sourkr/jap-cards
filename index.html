@@ -55,9 +55,23 @@
                 <span>あ</span>
             </md-icon-button>
 
-            <md-icon-button onclick="location.assign('./pages/settings.html')">
+            <!-- <md-icon-button onclick="location.assign('./pages/settings.html')">
                 <md-icon>settings</md-icon>
+            </md-icon-button> -->
+            
+            <md-icon-button id="option-more" class="r">
+                <md-icon>more_vert</md-icon>
             </md-icon-button>
+            
+            <md-menu id="menu-more" class="m" anchor="option-more">
+                <md-menu-item>
+                    <div slot="headline" onclick="location.assign('./pages/settings.html')">Settings</div>
+                </md-menu-item>
+                
+                <md-menu-item>
+                    <div slot="headline" onclick="location.assign('./pages/recall.html')">Daily Recall</div>
+                </md-menu-item>
+            </md-menu>
         </span>
     </nav>
 

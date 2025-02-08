@@ -83,3 +83,11 @@ md-fab {
 .err {
     --md-text-button-label-text-color: var(--md-sys-color-error);
 }
+
+.r {
+    position: relative;
+}
+
+.m {
+    margin: 10px;
+}

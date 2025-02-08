@@ -1,4 +1,4 @@
-const KEY_STATIC = 'static_1.0.5'
+const KEY_STATIC = 'static_1.0.6'
 
 const assets = [
   './',
