@@ -147,7 +147,7 @@
         }
 
         const cardsToRecall = cards
-            .filter(card => !card.nextRecallDate || (Date.now() - card.nextRecallDate) <= 0)
+            .filter(card => !card.nextRecallDate || (card.nextRecallDate - Date.now()) <= 0)
             .slice(0, 5)
 
         function next(completed) {
