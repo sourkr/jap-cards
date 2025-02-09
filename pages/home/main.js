@@ -20,6 +20,7 @@ function updateCardList() {
 
         cardEle.querySelector('.word').innerText = cardData.word
         cardEle.querySelector('.meaning').innerText = cardData.meaning
+        cardEle.querySelector('.review').innerText = formatDate(new Date(cardData.nextRecallDate))
 
         cardEle.querySelector('.edit').onclick = () => {
             location.assign(`./pages/add/?card=${i}`)
@@ -47,3 +48,11 @@ $('#option-more').on('click', () => {
     // alert(!$('#menu-more').prop('open'))
     $('#menu-more').prop('open', !$('#menu-more').prop('open'))
 })
+
+function formatDate(date) {
+    let day = date.getDate();
+    let month = date.getMonth() + 1; // Months are zero-based
+    let year = date.getFullYear() % 100; // Get last two digits of year
+
+    return `${day}-${month}-${year}`;
+}

@@ -98,7 +98,7 @@
 
 <body>
     <div id="progress">
-        <md-linear-progress id="progress-bar" four-color></md-linear-progress>
+        <md-linear-progress id="progress-bar"></md-linear-progress>
         <span id="counter">0 / 5</span>
     </div>
 
@@ -113,17 +113,31 @@
 
     <md-filled-button id="next" disabled>Check</md-filled-button>
 
-    <md-dialog id="dialog">
+    <md-dialog id="dialog-nec">
         <div slot="headline">
             Insufficent Cards
         </div>
 
-        <form slot="content" id="delete" method="dialog">
+        <form slot="content" id="nec" method="dialog">
             You need at least four cards to start test.
         </form>
 
         <div slot="actions">
-            <md-text-button form="delete" vlaue="ok">Home</md-text-button>
+            <md-text-button form="nec" vlaue="ok">Home</md-text-button>
+        </div>
+    </md-dialog>
+
+    <md-dialog id="dialog-done">
+        <div slot="headline">
+            Finished
+        </div>
+
+        <form slot="content" id="done" method="dialog">
+            Conguralations you have completed todays reviews.
+        </form>
+
+        <div slot="actions">
+            <md-text-button form="done" vlaue="ok">Home</md-text-button>
         </div>
     </md-dialog>
 
@@ -142,15 +156,26 @@
         const cards = JSON.parse(localStorage.getItem('jap'))
 
         if (cards.length < 4) {
-            $('#dialog')[0].show()
-            $('#dialog').on('close', () => location.replace(`../index.html`))
+            $('#dialog-nec')[0].show()
+            $('#dialog-nec').on('close', () => location.replace(`../index.html`))
+        } else if ((parseInt(localStorage.getItem('next') || nextNDays(1)) - Date.now()) <= 0) {
+            $('#dialog-done')[0].show()
+            $('#dialog-done').on('close', () => location.replace(`../index.html`))
         }
 
         const cardsToRecall = cards
-            .filter(card => !card.nextRecallDate || (card.nextRecallDate - Date.now()) <= 0)
+            .filter(card => !card.nextRecallDate || (Date.now() >= card.nextRecallDate))
             .slice(0, 5)
-
+        
         function next(completed) {
+            if (completed >= cardsToRecall.length) {
+                $('#dialog-done')[0].show()
+                $('#dialog-done').on('close', () => location.replace(`../index.html`))
+                
+                localStorage.setItem('next', nextNDays(1))
+                return
+            }
+
             const card = cardsToRecall[completed]
 
             $('#counter').text(`${completed} / ${cardsToRecall.length}`)
@@ -181,17 +206,17 @@
 
                 if (options[selected] == card.meaning) {
                     $($('#grid span')[selected]).addClass('correct')
-                    
+
                     const dayCount = rate[card.dayCount = (card.dayCount || 0) + 1] || rate.at(-1)
                     card.nextRecallDate = nextNDays(dayCount)
                 } else {
                     $($('#grid span')[selected]).addClass('wrong')
                     $($('#grid span')[options.indexOf(card.meaning)]).addClass('correct')
-                    
+
                     const dayCount = rate[card.dayCount = 1]
                     card.nextRecallDate = nextNDays(dayCount)
                 }
-                
+
                 localStorage.setItem('jap', JSON.stringify(cards))
 
                 $('#progress-bar').val((completed + 1) / cardsToRecall.length)
